@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import Header from '../containers/Partials/Header';
+import Sidebar from '../containers/Partials/Sidebar';
+import flexboxgrid from 'flexboxgrid';
+import './styles.scss';
 
 export default class App extends Component {
     render() {
         return (
-            <h1 className="title">Hello World</h1>
+            <div className="codeloom">
+                <Header />
+            </div>
         );
     }
 }

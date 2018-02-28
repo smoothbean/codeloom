@@ -1,0 +1,80 @@
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
+
+:root {
+    --main-height: 150px;
+    --nav-height: 100px;
+}
+
+//smartphone
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    :root {
+        --main-height: 250px;
+        --nav-height: 150px;
+    }
+}
+
+//ipad
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    :root {
+        --main-height: 250px;
+        --nav-height: 150px;
+    }
+}
+
+.codeloom__header {
+    &__main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 100px;
+        color: $color-white;
+        // @include stroke(4, $color-secondary);
+        height: var(--main-height);
+        background-color: $color-primary;
+    }
+
+    &__nav {
+        height: var(--nav-height);
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: center;
+        background-color: $color-primary-dark;
+        box-shadow: 0 2px 1px 0 rgba(176, 186, 191, 0.5);
+
+        &__user {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            font-weight: 600;
+            @include stroke(2, $color-secondary-dark);
+            color: $color-white;
+            height: 100%;
+        }
+
+        &__buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        &__button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            justify-content: center;
+            height: var(--nav-height);
+            width: 150px;
+            color: $color-secondary-light;
+            margin: 0 15px 0 15px ;
+            font-size: 30px;
+
+            &:hover {
+                color: $color-secondary-dark;
+            }
+
+        }
+    }
+}
