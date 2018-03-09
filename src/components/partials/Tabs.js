@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import FontIcon from 'material-ui/FontIcon';
-import ActionFlightTakeoff from 'material-ui/svg-icons/action/flight-takeoff';
 import {
   BrowserRouter as Router,
   Route,

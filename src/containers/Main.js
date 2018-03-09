@@ -1,18 +1,7 @@
-import React, { Component } from 'react';
-import Header from './Partials/Header';
-import Sidebar from './Partials/Sidebar';
-import Main from './Main';
+import ReactDOM from 'react-dom';
+import App from './App';
 import './styles.scss';
 
 import {Route} from 'react-router-dom';
 
-export default class App extends Component {
-    render() {
-        return (
-            <div>
-                <Header />
-                <Main />
-            </div>
-        );
-    }
-}
+ReactDOM.render(<App />, document.getElementById("app"));
