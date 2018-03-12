@@ -1,0 +1,54 @@
+/*Small phones */
+@media only screen and (max-width: 480px) {
+    .codeloom {
+        font-size: 20px;
+        &__home {
+            &__title {
+                width: 90%;
+            }
+
+            &__nav {
+                width: 60%;
+                margin-top: 50px;
+            }
+
+            &__profile {
+                &__image {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+        }
+    }
+}
+
+/*Small phone to small tablets (481 to 767)*/
+@media only screen and (max-width: 767px) {
+
+}
+
+/*Small tablet to big tablet (768 to 1023)*/
+@media only screen and (max-width: 1023px) {
+    .codeloom {
+        font-size: 20px;
+        &__home {
+            &__nav {
+                width: 60%;
+                margin-top: 50px;
+            }
+        }
+    }
+}
+
+/*Big tablet*/
+@media only screen and (max-width: 1200px) {
+    .codeloom {
+        font-size: 20px;
+        &__home {
+            &__nav {
+                width: 40%;
+                margin-top: 50px;
+            }
+        }
+    }
+}

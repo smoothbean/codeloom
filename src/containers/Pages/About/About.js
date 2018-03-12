@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Header from "../../Partials/Header/Header";
 
 export default class About extends Component {
     render() {
         return (
-            <p>About</p>
+            <Header />
         );
     }
 }

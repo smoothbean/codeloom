@@ -45,6 +45,10 @@ module.exports = {
                 loader: 'url-loader?limit=10000&mimetype=image/png'
             },
             {
+                test: /\.jpg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url-loader?limit=10000&mimetype=image/jpg'
+            },
+            {
                 test: /\.gif(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url-loader?limit=10000&mimetype=image/gif'
             }

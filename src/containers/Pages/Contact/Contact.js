@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import Header from "../../Partials/Header/Header";
 
 export default class Contact extends Component {
     render() {
         return (
-            <p>Contact</p>
+            <div>
+                <Header />
+            </div>
         );
     }
 }
