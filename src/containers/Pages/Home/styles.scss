@@ -1,0 +1,96 @@
+@import "../../../styles/_variables";
+
+a {
+    &:focus, &:hover, &:visited, &:link, &:active {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.codeloom {
+    font-size: 20px;
+    &__home {
+        background-image:
+            linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
+            linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+            url("../../../../images/mountain.jpg");
+        background-size: cover;
+        height: 100vh;
+        color: $color-white;
+
+        display: flex;
+        justify-content: center;
+
+        &__title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 180%;
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            border-bottom: 3px solid $color-primary-light;
+            padding-bottom: 10px;
+        }
+
+        &__nav {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 20%;
+            text-align: center;
+            top: 20%;
+
+            &:last-child {
+                border: none;
+            }
+
+            &__button {
+                cursor: pointer;
+                font-size: 150%;
+                padding: 5%;
+                border-bottom: 3px solid $color-primary-light;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $color-primary-light;
+                }
+
+                &--last {
+                    border: none;
+                }
+            }
+        }
+
+        &__profile {
+            position: absolute;
+            display: flex;
+            bottom: 5%;
+            left: 5%;
+
+            &__info {
+                padding: 20px;
+
+                &__name {
+                    font-size: 180%;
+                    font-weight: 300;
+                }
+
+                &__job {
+                    font-size: 90%;
+                    font-weight: 200;
+                    margin-top: 10px;
+                }
+            }
+
+            &__image {
+                width: 180px;
+                height: 180px;
+                border-radius: 100%;
+                border: 4px solid $color-primary-light;
+                background-image: url("../../../../images/me.jpg");
+                background-size: cover;
+            }
+        }
+    }
+}

@@ -1,0 +1,108 @@
+@import "../../../styles/_variables";
+
+/*Small phones */
+@media only screen and (max-width: 480px) {
+    .codeloom {
+        &__header {
+            height: 90px;
+
+            &__title {
+                padding: 0;
+                margin: 0 0 0 20px;
+            }
+
+            &__nav {
+                display: none;
+            }
+
+            &__button {
+                display: inline;
+                font-size: 35px;
+                margin-right: 20px;
+
+                &--active {
+                    color: $color-primary-light;
+                }
+            }
+
+            &__mobile__nav {
+                display: flex;
+
+                &__button {
+                    display: flex;
+                }
+            }
+        }
+    }
+}
+
+/*Small phone to small tablets (481 to 767)*/
+@media only screen and (max-width: 767px) {
+    .codeloom {
+        &__header {
+            height: 70px;
+
+            &__title {
+                padding: 0;
+                margin: 0 0 0 20px;
+            }
+
+            &__nav {
+                display: none;
+            }
+
+            &__button {
+                display: inline;
+                font-size: 35px;
+                margin-right: 20px;
+                height: 30px;
+
+                &--active {
+                    color: $color-primary-light;
+                }
+            }
+
+            &__mobile__nav {
+                display: flex;
+
+                &__button {
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+
+/*Small tablet to big tablet (768 to 1023)*/
+@media only screen and (max-width: 1023px) {
+    .codeloom {
+        &__header {
+            &__title {
+                padding: 0;
+                margin: 0 0 0 50px;
+            }
+
+            &__nav {
+                margin-right: 100px;
+            }
+
+        }
+    }
+}
+
+/*Big tablet*/
+@media only screen and (max-width: 1200px) {
+    .codeloom {
+        &__header {
+            &__title {
+                padding: 0;
+                margin: 0 0 0 50px;
+            }
+
+            &__nav {
+                margin-right: 100px;
+            }
+
+        }
+    }
+}

@@ -1,0 +1,83 @@
+@import "../../../styles/_variables";
+
+.codeloom {
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $color-primary-dark;
+        height: 110px;
+        color: $color-white;
+
+        &__title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 180%;
+            padding: 10px 0 10px;
+            margin-left: 100px;
+            border-bottom: 5px solid $color-primary-light;
+        }
+
+        &__nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 400px;
+            height: 100%;
+
+            &__button {
+                height: 100%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+                margin-left: 20px;
+                transition: all 0.3s;
+                color: $color-white;
+                border-bottom: 5px solid transparentize(#fff, 1);
+
+                &:hover {
+                    color: $color-primary-light;
+                    border-bottom: 5px solid $color-primary-light;
+                }
+            }
+
+        }
+
+        &__button {
+            display: none;
+        }
+
+        &__mobile__nav {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            color: $color-white;
+            max-height: 0;
+            overflow-y: hidden;
+            transition-property: all;
+            transition-duration: 0.7s;
+            transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+            &--open {
+                border-bottom: 5px solid $color-primary-light;
+                max-height: 200px;
+            }
+
+            &__button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                width: 100%;
+                background-color: $color-grey-dark;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+}
