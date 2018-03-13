@@ -5,20 +5,24 @@
     &__header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         background-color: $color-primary-dark;
-        height: 80px;
+        height: var(--header_height);
         color: $color-white;
 
         &__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: var(--width);
+
             &__title {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
                 height: 100%;
                 font-size: 180%;
-                padding: 10px 0 10px;
-                margin-left: 20px;
+                padding-bottom: 10px;
                 border-bottom: 5px solid $color-primary-light;
             }
 
@@ -29,7 +33,6 @@
 
         &__button {
             font-size: 35px;
-            margin-right: 20px;
             height: 30px;
 
             &--active {
@@ -62,6 +65,15 @@
                 background-color: $color-grey-dark;
                 padding: 0;
                 margin: 0;
+                border-bottom: 1px solid $color-black;
+
+                &--active {
+                    color: $color-primary-light;
+                }
+
+                &--last {
+                    border: 0;
+                }
             }
         }
     }

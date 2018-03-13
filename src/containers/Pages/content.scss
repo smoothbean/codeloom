@@ -1,0 +1,36 @@
+.codeloom__content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 20px 0;
+}
+
+@media only screen and (min-width : 320px) {
+    .codeloom__content__inner {
+        width: var(--width);
+    }
+}
+
+@media only screen and (min-width : 480px) {
+    .codeloom__content__inner {
+        width: var(--width);
+    }
+}
+
+@media only screen and (min-width : 768px) {
+    .codeloom__content__inner {
+        width: var(--width);
+    }
+}
+
+@media only screen and (min-width : 992px) {
+    .codeloom__content__inner {
+        width: var(--width);
+    }
+}
+
+@media only screen and (min-width : 1200px) {
+    .codeloom__content__inner {
+        width: var(--width);
+    }
+}

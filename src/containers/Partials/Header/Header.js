@@ -28,15 +28,42 @@ export default class Header extends Component {
         });
         return (
             <div className={classes}>
-                <div className="codeloom__header__mobile__nav__button"><Link to="/">home</Link></div>
-                <div className="codeloom__header__mobile__nav__button"><Link to="/about">about</Link></div>
-                <div className="codeloom__header__mobile__nav__button"><Link to="/contact">contact</Link></div>
+            {this.renderMobileNavOptions(
+                [{
+                    route: "/",
+                    label: "home"
+                },
+                {
+                    route: "/about",
+                    label: "about"
+                },
+                {
+                    route: "/contact",
+                    label: "contact"
+                }]
+            )}
             </div>
         );
     }
 
     isActive(pathname) {
         if (window.location.pathname == pathname) return "active";
+    }
+
+    renderMobileNavOptions(options) {
+        const optionsLen = options.length;
+        return options.map((option, i) => {
+            const baseClass = "codeloom__header__mobile__nav__button";
+            var classes = classNames(baseClass, {
+                [baseClass+"--active"]: window.location.pathname == option.route,
+                [baseClass+"--last"]: optionsLen-1 == i
+            });
+            return (
+                <div className={classes} key={option.label}>
+                    <Link to={option.route}>{option.label}</Link>
+                </div>
+            );
+        });
     }
 
     render() {
@@ -54,8 +81,8 @@ export default class Header extends Component {
                             <div className="codeloom__header__inner__nav__button"><Link to="/about">about</Link></div>
                             <div className="codeloom__header__inner__nav__button"><Link to="/contact">contact</Link></div>
                         </div>
+                        <i className={classes} onClick={this.toggleMobileNav.bind(this)}>menu</i>
                     </div>
-                    <i className={classes} onClick={this.toggleMobileNav.bind(this)}>menu</i>
                 </div>
                 { this.renderMobileNav() }
             </div>

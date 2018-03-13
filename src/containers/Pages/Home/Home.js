@@ -3,16 +3,43 @@ import { Link } from 'react-router-dom';
 import flexboxgrid from 'flexboxgrid';
 import "./styles.scss";
 import "./queries.scss";
+import classNames from "classnames";
 
 export default class Home extends Component {
+    renderNavOptions(options) {
+        const optionsLen = options.length;
+        return options.map((option, i) => {
+            const baseClass = "codeloom__home__nav__button";
+            var classes = classNames(baseClass, {
+                [baseClass+"--last"]: optionsLen-1 == i
+            });
+            return (
+                <div className={classes} key={option.label}>
+                    <Link to={option.route}>{option.label}</Link>
+                </div>
+            );
+        });
+    }
+
     render() {
         return (
             <div className="codeloom__home">
                 <div className="codeloom__home__title">codeloom</div>
                 <div className="codeloom__home__nav">
-                    <div className="codeloom__home__nav__button"><Link to="/about">about</Link></div>
-                    <div className="codeloom__home__nav__button"><Link to="/contact">contact</Link></div>
-                    <div className="codeloom__home__nav__button codeloom__home__nav__button--last"><Link to="/cv">my CV</Link></div>
+                    {this.renderNavOptions(
+                        [{
+                            route: "/about",
+                            label: "about"
+                        },
+                        {
+                            route: "/contact",
+                            label: "contact"
+                        },
+                        {
+                            route: "/cv",
+                            label: "my CV"
+                        }]
+                    )}
                 </div>
                 <div className="codeloom__home__profile">
                     <div className="codeloom__home__profile__image"></div>

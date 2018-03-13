@@ -4,9 +4,42 @@ $color-primary-light: #428E9F;
 $color-primary-dark: #244E57;
 
 
-$color-black: #494a48;
+$color-black: #30302f;
 $color-white: #E3E5E1;
 $color-grey: #969793;
 $color-grey-dark: #555;
 $color-grey-dark: #4d4d4d;
 $color-grey-light: #d1d1d0;
+
+:root {
+    --width: 90%;
+    --header_height: 70px;
+}
+
+@media only screen and (min-width : 320px) {
+
+}
+
+@media only screen and (min-width : 480px) {
+    :root {
+        --width: 90%;
+        --header_height: 70px;
+    }
+}
+
+@media only screen and (min-width : 768px) {
+    :root {
+        --width: 80%;
+        --header_height: 90px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    :root {
+        --width: 60%;
+    }
+}
