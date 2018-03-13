@@ -16,10 +16,11 @@ a {
             url("../../../../images/mountain.jpg");
         background-size: cover;
         height: 100vh;
+        width: 100vw;
         color: $color-white;
-
         display: flex;
         justify-content: center;
+        align-items: center;
 
         &__title {
             display: flex;
@@ -31,15 +32,15 @@ a {
             left: 5%;
             border-bottom: 3px solid $color-primary-light;
             padding-bottom: 10px;
+            width: 90%;
         }
 
         &__nav {
             display: flex;
             flex-direction: column;
-            position: absolute;
-            width: 20%;
+            width: 60%;
             text-align: center;
-            top: 20%;
+            padding-bottom: 20%;
 
             &:last-child {
                 border: none;
@@ -65,8 +66,9 @@ a {
         &__profile {
             position: absolute;
             display: flex;
+            align-items: center;
+            justify-content: center;
             bottom: 5%;
-            left: 5%;
 
             &__info {
                 padding: 20px;
@@ -84,8 +86,8 @@ a {
             }
 
             &__image {
-                width: 180px;
-                height: 180px;
+                width: 120px;
+                height: 120px;
                 border-radius: 100%;
                 border: 4px solid $color-primary-light;
                 background-image: url("../../../../images/me.jpg");
