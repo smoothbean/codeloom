@@ -1,8 +1,15 @@
+@import "../../styles/_variables";
+
 .codeloom__content {
     width: 100%;
+    height: calc(100vh - var(--header_height));
     display: flex;
     justify-content: center;
     padding: 20px 0 20px 0;
+    color: $color-black;
+
+    &__inner {
+    }
 }
 
 @media only screen and (min-width : 320px) {

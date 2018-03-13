@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import flexboxgrid from 'flexboxgrid';
-import "./styles.scss";
-import "./queries.scss";
 import classNames from "classnames";
+import "./styles.scss";
 
 export default class Home extends Component {
     renderNavOptions(options) {
