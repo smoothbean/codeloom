@@ -1,11 +1,24 @@
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: {
         main: './src/scripts/main.js'
     },
     output: {
-        filename: './dist/scripts/[name].js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: './dist/scripts/[name].js',
+        publicPath: '/'
     },
     devtool: 'source-map',
+    devServer: {
+        historyApiFallback: true,
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
+    ],
     module: {
         loaders: [
             {

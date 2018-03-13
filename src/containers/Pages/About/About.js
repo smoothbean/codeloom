@@ -4,7 +4,10 @@ import Header from "../../Partials/Header/Header";
 export default class About extends Component {
     render() {
         return (
-            <Header />
+            <div>
+                <Header />
+                About
+            </div>
         );
     }
 }

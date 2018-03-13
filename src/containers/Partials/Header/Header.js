@@ -47,11 +47,13 @@ export default class Header extends Component {
         return (
             <div>
                 <div className="codeloom__header">
-                    <div className="codeloom__header__title">codeloom</div>
-                    <div className="codeloom__header__nav">
-                        <div className="codeloom__header__nav__button"><Link to="/">home</Link></div>
-                        <div className="codeloom__header__nav__button"><Link to="/about">about</Link></div>
-                        <div className="codeloom__header__nav__button"><Link to="/contact">contact</Link></div>
+                    <div className="codeloom__header__inner">
+                        <div className="codeloom__header__inner__title">codeloom</div>
+                        <div className="codeloom__header__inner__nav">
+                            <div className="codeloom__header__inner__nav__button"><Link to="/">home</Link></div>
+                            <div className="codeloom__header__inner__nav__button"><Link to="/about">about</Link></div>
+                            <div className="codeloom__header__inner__nav__button"><Link to="/contact">contact</Link></div>
+                        </div>
                     </div>
                     <i className={classes} onClick={this.toggleMobileNav.bind(this)}>menu</i>
                 </div>

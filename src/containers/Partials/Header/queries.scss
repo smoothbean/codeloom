@@ -1,108 +1,103 @@
 @import "../../../styles/_variables";
 
-/*Small phones */
-@media only screen and (max-width: 480px) {
-    .codeloom {
-        &__header {
-            height: 90px;
+@media only screen and (min-width : 320px) {
 
-            &__title {
-                padding: 0;
-                margin: 0 0 0 20px;
-            }
-
-            &__nav {
-                display: none;
-            }
-
-            &__button {
-                display: inline;
-                font-size: 35px;
-                margin-right: 20px;
-
-                &--active {
-                    color: $color-primary-light;
-                }
-            }
-
-            &__mobile__nav {
-                display: flex;
-
-                &__button {
-                    display: flex;
-                }
-            }
-        }
-    }
 }
 
-/*Small phone to small tablets (481 to 767)*/
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width : 480px) {
     .codeloom {
         &__header {
             height: 70px;
+        }
+    }
+}
 
-            &__title {
-                padding: 0;
-                margin: 0 0 0 20px;
+@media only screen and (min-width : 768px) {
+    .codeloom {
+        &__header {
+
+            &__inner {
+                &__title {
+                    padding: 0;
+                    margin: 0 0 0 50px;
+                }
+
+                &__nav {
+                    margin-right: 100px;
+                }
             }
+        }
+    }
+}
 
-            &__nav {
-                display: none;
+@media only screen and (min-width : 992px) {
+    .codeloom {
+        &__header {
+
+            &__inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 50%;
+
+                &__title {
+                    padding: 0;
+                    margin: 0 0 0 50px;
+                }
+
+                &__nav {
+                    margin-right: 100px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width : 1200px) {
+    .codeloom {
+        &__header {
+            height: 90px;
+            justify-content: center;
+
+            &__inner {
+
+                &__title {
+                    margin: 0 0 0 50px;
+                }
+
+                &__nav {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+
+                    &__button {
+                        height: 100%;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 10px;
+                        margin-left: 20px;
+                        transition: all 0.3s;
+                        color: $color-white;
+                        border-bottom: 5px solid transparentize(#fff, 1);
+
+                        &:hover {
+                            color: $color-primary-light;
+                            border-bottom: 5px solid $color-primary-light;
+                        }
+                    }
+                }
             }
 
             &__button {
-                display: inline;
-                font-size: 35px;
-                margin-right: 20px;
-                height: 30px;
-
-                &--active {
-                    color: $color-primary-light;
-                }
+                display: none;
             }
 
             &__mobile__nav {
-                display: flex;
-
-                &__button {
-                    height: 40px;
-                }
+                display: none;
             }
-        }
-    }
-}
-
-/*Small tablet to big tablet (768 to 1023)*/
-@media only screen and (max-width: 1023px) {
-    .codeloom {
-        &__header {
-            &__title {
-                padding: 0;
-                margin: 0 0 0 50px;
-            }
-
-            &__nav {
-                margin-right: 100px;
-            }
-
-        }
-    }
-}
-
-/*Big tablet*/
-@media only screen and (max-width: 1200px) {
-    .codeloom {
-        &__header {
-            &__title {
-                padding: 0;
-                margin: 0 0 0 50px;
-            }
-
-            &__nav {
-                margin-right: 100px;
-            }
-
         }
     }
 }

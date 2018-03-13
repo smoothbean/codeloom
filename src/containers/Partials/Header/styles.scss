@@ -7,53 +7,38 @@
         align-items: center;
         justify-content: space-between;
         background-color: $color-primary-dark;
-        height: 110px;
+        height: 80px;
         color: $color-white;
 
-        &__title {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            font-size: 180%;
-            padding: 10px 0 10px;
-            margin-left: 100px;
-            border-bottom: 5px solid $color-primary-light;
-        }
-
-        &__nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 400px;
-            height: 100%;
-
-            &__button {
-                height: 100%;
-                cursor: pointer;
+        &__inner {
+            &__title {
                 display: flex;
+                justify-content: flex-start;
                 align-items: center;
-                justify-content: center;
-                padding: 10px;
+                height: 100%;
+                font-size: 180%;
+                padding: 10px 0 10px;
                 margin-left: 20px;
-                transition: all 0.3s;
-                color: $color-white;
-                border-bottom: 5px solid transparentize(#fff, 1);
-
-                &:hover {
-                    color: $color-primary-light;
-                    border-bottom: 5px solid $color-primary-light;
-                }
+                border-bottom: 5px solid $color-primary-light;
             }
 
+            &__nav {
+                display: none;
+            }
         }
 
         &__button {
-            display: none;
+            font-size: 35px;
+            margin-right: 20px;
+            height: 30px;
+
+            &--active {
+                color: $color-primary-light;
+            }
         }
 
         &__mobile__nav {
-            display: none;
+            display: flex;
             flex-direction: column;
             align-items: center;
             color: $color-white;
