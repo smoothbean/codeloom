@@ -1,0 +1,39 @@
+@import "../../styles/_variables";
+
+.codeloom__content {
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    transition: all 0.2s linear;
+
+    &--hide {
+        transform: scale(0);
+    }
+
+    &__header {
+        height: var(--content_header_height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 120%;
+        background: $color-grey-dark;
+
+        &__close {
+            cursor: pointer;
+            font-size: 120%;
+            position: absolute;
+            left: 10px;
+            padding-top: 3px;
+            transition: color 0.3s;
+
+            &:hover {
+                color: $color-primary-light;
+            }
+        }
+    }
+
+    &__inner {
+        height: var(--content_inner_height);
+        background: $color-grey-light;
+    }
+}

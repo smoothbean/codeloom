@@ -10,8 +10,11 @@ $color-grey-dark: #4d4d4d;
 $color-grey-light: #d1d1d0;
 
 :root {
-    --width: 90%;
     --header_height: 70px;
+    --footer_height: 120px;
+    --inner_height: calc(100vh - var(--header_height) - var(--footer_height));
+    --content_header_height: 50px;
+    --content_inner_height: calc(var(--inner_height) - var(--content_header_height));
 }
 
 @media only screen and (min-width : 320px) {
@@ -20,15 +23,17 @@ $color-grey-light: #d1d1d0;
 
 @media only screen and (min-width : 480px) {
     :root {
-        --width: 90%;
-        --header_height: 70px;
+        --header_height: 60px;
+        --footer_height: 30px;
+        --content_header_height: 40px;
     }
 }
 
 @media only screen and (min-width : 768px) {
     :root {
-        --width: 80%;
-        --header_height: 90px;
+        --header_height: 100px;
+        --footer_height: 160px;
+        --content_header_height: 60px;
     }
 }
 
@@ -38,6 +43,8 @@ $color-grey-light: #d1d1d0;
 
 @media only screen and (min-width : 1200px) {
     :root {
-        --width: 60%;
+        --header_height: 100px;
+        --footer_height: 160px;
+        --content_header_height: 60px;
     }
 }
