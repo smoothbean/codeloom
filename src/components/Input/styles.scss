@@ -1,9 +1,5 @@
 @import "../../styles/_variables";
 
-textarea {
-    font-family: inherit;
-}
-
 .input {
     color: $color-black;
 
@@ -21,6 +17,7 @@ textarea {
 
         &--textarea {
             height: auto;
+            font-family: inherit;
         }
     }
 
@@ -33,5 +30,15 @@ textarea {
         display: flex;
         align-items: center;
         font-size: 14px;
+
+        &__required {
+            font-size: 150%;
+            color: $color-error;
+        }
+    }
+
+    &__error {
+        font-size: 70%;
+        color: $color-error;
     }
 }

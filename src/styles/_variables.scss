@@ -8,6 +8,7 @@ $color-white: #f4f5f3;
 $color-grey: #969793;
 $color-grey-dark: #4d4d4d;
 $color-grey-light: #d1d1d0;
+$color-error: #B22222;
 
 :root {
     --header_height: 70px;
@@ -23,7 +24,7 @@ $color-grey-light: #d1d1d0;
 @media only screen and (min-width : 480px) {
     :root {
         --header_height: 60px;
-        --footer_height: 30px;
+        --footer_height: 40px;
         --content_header_height: 50px;
     }
 }

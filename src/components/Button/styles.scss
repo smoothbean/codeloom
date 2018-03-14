@@ -1,0 +1,12 @@
+@import "../../styles/_variables";
+
+.codeloom__button {
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    background-color: $color-primary-light;
+    border: none;
+    border-radius: 3px;
+    color: $color-white;
+    font-size: 90%;
+}

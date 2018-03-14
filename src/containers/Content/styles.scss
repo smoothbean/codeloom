@@ -42,13 +42,13 @@
     &__content {
         display: flex;
         justify-content: center;
-        flex: auto;
-
         text-align: left;
+        align-items: stretch;
+        flex: auto;
         background: $color-grey-light;
+        overflow: auto;
 
         &__inner {
-            flex: auto;
             padding: 20px;
             width: var(--content_inner_width);
         }
