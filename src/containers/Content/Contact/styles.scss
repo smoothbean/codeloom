@@ -1,0 +1,88 @@
+@import "../../../styles/_variables";
+
+.codeloom__content__contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &__form {
+        display: grid;
+        margin-bottom: 10px;
+        grid-gap: 10px;
+        grid-template-areas:
+            "name"
+            "email"
+            "number"
+            "message";
+
+        &__input {
+
+            &__name {
+                grid-area: name;
+            }
+
+            &__email {
+                grid-area: email;
+            }
+
+            &__number {
+                grid-area: number;
+            }
+
+            &__message {
+                grid-area: message;
+            }
+        }
+    }
+
+    &__title {
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid $color-primary-light;
+    }
+
+    &__recaptcha {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+/* QUERIES */
+
+@media only screen and (min-width : 320px) {
+
+}
+
+@media only screen and (min-width : 480px) {
+    .codeloom__content__contact {
+        &__form {
+            grid-template-columns: 2fr 2fr;
+            grid-template-areas:
+                "name email"
+                "number none"
+                "message message";
+        }
+    }
+}
+
+@media only screen and (min-width : 768px) {
+    .codeloom__content__contact {
+        &__form {
+            grid-template-columns: 2fr 2fr;
+            grid-template-areas:
+                "name email"
+                "number none"
+                "message message";
+        }
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+
+}

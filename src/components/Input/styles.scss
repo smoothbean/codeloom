@@ -18,6 +18,10 @@ textarea {
         outline: none;
         padding: 10px;
         border-radius: 3px;
+
+        &--textarea {
+            height: auto;
+        }
     }
 
     &__icon {

@@ -13,7 +13,11 @@ export default class Content extends Component {
         return (
             <div className={classes}>
                 <Header title={this.props.title} onClose={this.props.onClose} />
-                <div className="codeloom__content__inner"></div>
+                <div className="codeloom__content__content">
+                    <div className="codeloom__content__content__inner">
+                        {this.props.children}
+                    </div>
+                </div>
             </div>
         );
     }

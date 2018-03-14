@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from "classnames";
-import Content from "../../components/Content/Content";
+import Content from "../Content/Content";
+import About from "../Content/About/About";
+import Contact from "../Content/Contact/Contact";
+import Cv from "../Content/Cv/Cv";
 import "./styles.scss";
 
 export default class Home extends Component {
@@ -42,13 +45,31 @@ export default class Home extends Component {
         return (
             <Content
                 title={this.state.navOptions[this.state.content]}
-                content={this.state.content}
                 onClose={this.closeContent.bind(this)}
                 hide={!this.state.content ? true : false}
-            >
-
+                >
+                {this.renderContentChildComponent()}
             </Content>
         );
+    }
+
+    renderContentChildComponent() {
+        if (this.state.content) {
+            switch (this.state.content) {
+                case "about":
+                    return(
+                        <About />
+                    );
+                case "contact":
+                    return(
+                        <Contact />
+                    );
+                case "cv":
+                    return(
+                        <Cv />
+                    );
+            }
+        }
     }
 
     render() {

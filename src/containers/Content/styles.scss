@@ -1,10 +1,13 @@
 @import "../../styles/_variables";
 
 .codeloom__content {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100%;
     transform: scale(1);
     transition: all 0.2s linear;
+    color: $color-black;
+    overflow: auto;
 
     &--hide {
         transform: scale(0);
@@ -17,6 +20,10 @@
         justify-content: center;
         font-size: 120%;
         background: $color-grey-dark;
+        color: $color-white;
+        position: sticky;
+        width: 100%;
+        top: 0;
 
         &__close {
             cursor: pointer;
@@ -32,8 +39,18 @@
         }
     }
 
-    &__inner {
-        height: var(--content_inner_height);
+    &__content {
+        display: flex;
+        justify-content: center;
+        flex: auto;
+
+        text-align: left;
         background: $color-grey-light;
+
+        &__inner {
+            flex: auto;
+            padding: 20px;
+            width: var(--content_inner_width);
+        }
     }
 }

@@ -8,6 +8,8 @@ a {
 }
 
 .codeloom {
+    display: flex;
+    flex-direction: column;
     font-size: 20px;
     background-image:
         linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
@@ -32,20 +34,20 @@ a {
             font-size: 180%;
             border-bottom: 3px solid $color-primary-light;
             padding-bottom: 10px;
-            width: 90%;
+            width: 80%;
         }
     }
 
     &__inner {
-        height: var(--inner_height);
         display: flex;
         justify-content: center;
-        align-items: center;
+        flex: auto;
 
         &__nav {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-self: center;
             position: fixed;
             opacity: 1;
             transition: all 1s linear;
@@ -138,7 +140,6 @@ a {
                 flex-direction: row;
                 width: 100%;
                 justify-content: center;
-                padding-bottom: 10%;
 
                 &__button {
                     margin-left: 20px;
@@ -152,24 +153,7 @@ a {
 
         &__footer {
             &__profile {
-                left: 5%;
                 display: none;
-
-                // &__info {
-                //     &__name {
-                //         font-size: 120%;
-                //     }
-                //
-                //     &__job {
-                //         font-size: 65%;
-                //     }
-                // }
-                //
-                // &__image {
-                //     width: 65px;
-                //     height: 65px;
-                //     border: 3px solid $color-primary-light;
-                // }
             }
         }
     }
@@ -223,7 +207,41 @@ a {
 }
 
 @media only screen and (min-width : 992px) {
+    .codeloom {
 
+        &__header {
+            &__title {
+                width: 20%;
+                font-size: 220%;
+            }
+        }
+
+        &__inner {
+            &__nav {
+                width: 40%;
+            }
+        }
+
+        &__footer {
+            &__profile {
+
+                &__info {
+                    &__name {
+                        font-size: 200%;
+                    }
+
+                    &__job {
+                        font-size: 110%;
+                    }
+                }
+
+                &__image {
+                    width: 130px;
+                    height: 130px;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (min-width : 1200px) {
