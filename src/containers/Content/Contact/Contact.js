@@ -35,6 +35,7 @@ export default class Contact extends Component {
     }
 
     onSubmit() {
+        this.sendEmail();
         let form = this.state.form;
         let errors = false;
         let loading = false;
@@ -57,7 +58,9 @@ export default class Contact extends Component {
     }
 
     sendEmail() {
-
+        fetch('/users')
+            .then(res => res.json())
+            .then(users => console.log(users));
     }
 
     googleVerify() {
