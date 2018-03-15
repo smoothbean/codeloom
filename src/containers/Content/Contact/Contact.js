@@ -58,9 +58,14 @@ export default class Contact extends Component {
     }
 
     sendEmail() {
-        fetch('/users')
+        this.setState({ loading: true });
+        fetch('/email')
             .then(res => res.json())
-            .then(users => console.log(users));
+            .then((email) => {
+                console.log(email);
+                this.setState({ loading: false });
+            });
+
     }
 
     googleVerify() {
@@ -76,6 +81,7 @@ export default class Contact extends Component {
     }
 
     render() {
+        console.log(this.state.loading);
         return (
             <div className="codeloom__content__contact">
                 <div className="codeloom__content__contact__title">Send Me An Email</div>

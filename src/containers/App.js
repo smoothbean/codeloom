@@ -22,11 +22,7 @@ export default class App extends Component {
     }
 
     onNavClick(content) {
-        this.setState({ content: content });
-    }
-
-    closeContent() {
-        this.setState({ content: false });
+        // this.setState({ content: content });
     }
 
     renderNavOptions() {
@@ -38,7 +34,11 @@ export default class App extends Component {
                 [baseClass+"--last"]: optionsLen-1 == i,
             });
             return (
-                <div className={classes} key={options[key]} onClick={this.onNavClick.bind(this, key)}>{options[key]}</div>
+                <Link to={"/"+key} key={options[key]}>
+                    <div className={classes}>
+                        {options[key]}
+                    </div>
+                </Link>
             );
         });
     }
@@ -46,32 +46,14 @@ export default class App extends Component {
     renderContent() {
         return (
             <Content
-                title={this.state.navOptions[this.state.content]}
-                onClose={this.closeContent.bind(this)}
-                hide={!this.state.content ? true : false}
-                >
-                {this.renderContentChildComponent()}
+                title={window.location.pathname.substr(1)}
+                hide={window.location.pathname == "/" ? true : false}
+            >
+                <Route path="/about" component={About}/>
+                <Route path="/contact" component={Contact}/>
+                <Route path="/cv" component={Cv}/>
             </Content>
         );
-    }
-
-    renderContentChildComponent() {
-        if (this.state.content) {
-            switch (this.state.content) {
-                case "about":
-                    return(
-                        <About />
-                    );
-                case "contact":
-                    return(
-                        <Contact />
-                    );
-                case "cv":
-                    return(
-                        <Cv />
-                    );
-            }
-        }
     }
 
     render() {

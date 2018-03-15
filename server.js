@@ -27,6 +27,14 @@ if (!isProduction) {
 
 }
 
+app.get('/email', function (req, res) {
+    setTimeout(() => res.json({meme: "tasty"}), 2000);
+});
+
+app.get('/*', function (req, res) {
+     res.sendFile(path.join(__dirname + '/public/index.html'));
+});
+
 proxy.on('error', function(e) {
   console.log('Could not connect to proxy, please try again...');
 });
