@@ -59,7 +59,25 @@ export default class Contact extends Component {
 
     sendEmail() {
         this.setState({ loading: true });
-        fetch('/email')
+
+        let form = {
+            name: {
+                value: "guy man",
+            },
+            email: {
+                value: "meme@test.net",
+            },
+            number: {
+                value: "pls",
+            },
+            message: {
+                value: "hi there, wanna get down ?",
+            },
+        };
+
+        fetch('/email', {
+            method: 'post',
+            body: {form}})
             .then(res => res.json())
             .then((email) => {
                 console.log(email);

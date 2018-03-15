@@ -24,6 +24,7 @@
     "file-loader": "^1.1.11",
     "font-awesome": "^4.7.0",
     "html-webpack-plugin": "^3.0.6",
+    "nodemailer": "^4.6.3",
     "path": "^0.12.7",
     "react": "^16.2.0",
     "react-click-outside": "^3.0.1",
