@@ -76,8 +76,12 @@ export default class Contact extends Component {
         };
 
         fetch('/email', {
-            method: 'post',
-            body: {form}})
+          method: 'POST', // or 'PUT'
+          body: JSON.stringify({smeg: cheese}),
+          headers: new Headers({
+            'Content-Type': 'application/json'
+          })
+        })
             .then(res => res.json())
             .then((email) => {
                 console.log(email);

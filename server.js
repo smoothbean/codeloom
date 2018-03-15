@@ -30,16 +30,17 @@ if (!isProduction) {
 
 }
 
-app.post('/email', function (req, res) {
-    let transporter = nodemailer.createTransport({
-        host: 'smtp.sendgrid.net',
-        port: 465,
-        secure: true,
-        auth: {
-            user: "apikey",
-            pass: env.SENDGRID_KEY
-        }
-    });
+app.all('/email/', function (req, res) {
+    console.log(req.body);
+    // let transporter = nodemailer.createTransport({
+    //     host: 'smtp.sendgrid.net',
+    //     port: 465,
+    //     secure: true,
+    //     auth: {
+    //         user: "apikey",
+    //         pass: env.SENDGRID_KEY
+    //     }
+    // });
 
     let mailOptions = {
         from: '"Memey" <hello@example.com>', // sender address

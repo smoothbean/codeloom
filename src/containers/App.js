@@ -59,7 +59,7 @@ export default class App extends Component {
     render() {
         const baseClass = "codeloom__inner__nav";
         var classes = classNames(baseClass, {
-            [baseClass+"--hide"]: this.state.content
+            [baseClass+"--hide"]: window.location.pathname != "/"
         });
         return (
             <div className="codeloom">
