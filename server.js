@@ -1,13 +1,13 @@
 var express = require('express');
 var path = require('path');
 var httpProxy = require('http-proxy');
-
-// We need to add a configuration to our proxy server,
-// as we are now proxying outside localhost
+var bodyParser = require('body-parser');
 var proxy = httpProxy.createProxyServer({
   changeOrigin: true
 });
+
 var app = express();
+app.use(bodyParser.json());
 
 var isProduction = process.env.NODE_ENV === 'production';
 var port = isProduction ? process.env.PORT : 3000;
@@ -30,33 +30,30 @@ if (!isProduction) {
 
 }
 
-app.all('/email/', function (req, res) {
-    console.log(req.body);
-    // let transporter = nodemailer.createTransport({
-    //     host: 'smtp.sendgrid.net',
-    //     port: 465,
-    //     secure: true,
-    //     auth: {
-    //         user: "apikey",
-    //         pass: env.SENDGRID_KEY
-    //     }
-    // });
+app.post('/email/', function (req, res) {
+    let body = req.body;
+    let form = body.form;
+
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.sendgrid.net',
+        port: 465,
+        secure: true,
+        auth: {
+            user: "apikey",
+            pass: env.SENDGRID_KEY
+        }
+    });
 
     let mailOptions = {
-        from: '"Memey" <hello@example.com>', // sender address
-        to: 'jack@codeloom.co.uk', // list of receivers
-        subject: 'Codeloom Contact Form', // Subject line
-        html: '<b>Hello world?</b>' // html body
+        from: `"${form.name.value}" <${form.email.value}>`,
+        to: 'jack@codeloom.co.uk',
+        subject: 'Codeloom Contact Form',
+        html: `<p>${form.message.value} ${form.number.value ? `<br />Phone Number: <strong>${form.number.value}</strong>` : null}</p>`
     };
-    //
-    // transporter.sendMail(mailOptions, (error, info) => {
-    //     if (error) {
-    //         return console.log(error);
-    //     }
-    //     console.log('Message sent: %s', info.messageId);
-    //     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    // });
-    setTimeout(() => res.json({meme: "tasty"}), 2000);
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        res.json({ sent: !error ? true : false, error });
+    });
 });
 
 app.get('/*', function (req, res) {

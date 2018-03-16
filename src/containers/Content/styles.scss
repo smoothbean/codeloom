@@ -7,7 +7,6 @@
     transform: scale(1);
     transition: all 0.2s linear;
     color: $color-black;
-    overflow: auto;
 
     &--hide {
         transform: scale(0);
@@ -46,7 +45,7 @@
         align-items: stretch;
         flex: auto;
         background: $color-grey-light;
-        overflow: auto;
+        overflow-y: auto;
 
         &__inner {
             padding: 20px;

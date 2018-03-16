@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
-import Recaptcha from 'react-recaptcha';
 import "./styles.scss";
 
 export default class Contact extends Component {
@@ -35,75 +34,53 @@ export default class Contact extends Component {
     }
 
     onSubmit() {
-        this.sendEmail();
         let form = this.state.form;
         let errors = false;
-        let loading = false;
 
         Object.keys(form).forEach((field) => {
+            form[field].error = null;
             if (form[field].required && !form[field].value) {
                 errors = true;
                 form[field].error = "This field is required";
+            } else if (field == "email") {
+                if (!this.validateEmail(form[field].value)) {
+                    errors = true;
+                    form[field].error = "Please enter a valid email";
+                }
             } else {
                 form[field].error = false;
             }
         });
 
-        if (!errors && this.state.human) {
-            loading = true;
+        if (!errors) {
             this.sendEmail();
         }
 
-        this.setState({ form, submitted: true, loading });
+        this.setState({ form, submitted: true });
+    }
+
+    validateEmail(email) {
+        var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regex.test(email);
     }
 
     sendEmail() {
         this.setState({ loading: true });
-
-        let form = {
-            name: {
-                value: "guy man",
-            },
-            email: {
-                value: "meme@test.net",
-            },
-            number: {
-                value: "pls",
-            },
-            message: {
-                value: "hi there, wanna get down ?",
-            },
-        };
-
         fetch('/email', {
-          method: 'POST', // or 'PUT'
-          body: JSON.stringify({smeg: cheese}),
-          headers: new Headers({
-            'Content-Type': 'application/json'
-          })
+            method: 'POST',
+            body: JSON.stringify({ form: this.state.form }),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
         })
-            .then(res => res.json())
-            .then((email) => {
-                console.log(email);
-                this.setState({ loading: false });
-            });
-
-    }
-
-    googleVerify() {
-        this.setState({ human: true });
-    }
-
-    renderRecaptchaError() {
-        if (this.state.submitted && !this.state.human) {
-            return (
-                <div className="codeloom__content__contact__recaptcha__error">Are you human ?</div>
-            );
-        }
+        .then(res => res.json())
+        .then((email) => {
+            console.log(email);
+            this.setState({ loading: false });
+        });
     }
 
     render() {
-        console.log(this.state.loading);
         return (
             <div className="codeloom__content__contact">
                 <div className="codeloom__content__contact__title">Send Me An Email</div>
@@ -154,10 +131,6 @@ export default class Contact extends Component {
                         classes="codeloom__content__contact__form__input__message"
                         name="message"
                     />
-                </div>
-                <div className="codeloom__content__contact__recaptcha">
-                    <Recaptcha sitekey="6Ld1o0wUAAAAANdbmuDziLusLpeOEy6H5AUUJZ3h" verifyCallback={this.googleVerify.bind(this)} />
-                    { this.renderRecaptchaError() }
                 </div>
                 <div className="codeloom__content__contact__submit">
                     <Button onClick={this.onSubmit.bind(this)} text="Send Email" />
