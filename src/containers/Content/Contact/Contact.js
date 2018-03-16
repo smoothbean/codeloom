@@ -75,8 +75,7 @@ export default class Contact extends Component {
         })
         .then(res => res.json())
         .then((email) => {
-            console.log(email);
-            this.setState({ loading: false });
+            this.setState({ email, loading: false });
         });
     }
 
