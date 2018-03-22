@@ -75,8 +75,35 @@ export default class Contact extends Component {
         })
         .then(res => res.json())
         .then((email) => {
-            this.setState({ email, loading: false });
+            let form = this.state.form;
+            if (email.sent) {
+                Object.keys(form).forEach((field) => {
+                    form[field].value = "";
+                });
+            }
+
+            this.setState({ email, loading: false, form });
         });
+    }
+
+    renderEmailMessage() {
+        if (this.state.email) {
+            if (this.state.email.sent) {
+                return (
+                    <div className="codeloom__content__contact__email__message">
+                        <i className="codeloom__content__contact__email__message__icon material-icons">mail</i>
+                        <div>Email Sent !</div>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className="codeloom__content__contact__email__message">
+                        <i className="codeloom__content__contact__email__message__icon codeloom__content__contact__email__message__icon--error material-icons">mail</i>
+                        <div>Error(s) Occurred While Sending Email !</div>
+                    </div>
+                );
+            }
+        }
     }
 
     render() {
@@ -90,7 +117,8 @@ export default class Contact extends Component {
                         value={this.state.form.name.value}
                         required={this.state.form.name.required}
                         error={this.state.form.name.error}
-                        label="Name" icon="person"
+                        label="Name"
+                        icon="person"
                         placeholder="name"
                         classes="codeloom__content__contact__form__input__name"
                         name="name"
@@ -101,7 +129,8 @@ export default class Contact extends Component {
                         value={this.state.form.email.value}
                         required={this.state.form.email.required}
                         error={this.state.form.email.error}
-                        label="Email" icon="mail"
+                        label="Email"
+                        icon="mail"
                         placeholder="email address"
                         classes="codeloom__content__contact__form__input__email"
                         name="email"
@@ -131,8 +160,9 @@ export default class Contact extends Component {
                         name="message"
                     />
                 </div>
+                { this.renderEmailMessage() }
                 <div className="codeloom__content__contact__submit">
-                    <Button onClick={this.onSubmit.bind(this)} text="Send Email" />
+                    <Button onClick={this.onSubmit.bind(this)} text="Send Email" loading={this.state.loading} />
                 </div>
             </div>
         );

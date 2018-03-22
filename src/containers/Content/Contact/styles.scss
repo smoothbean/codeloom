@@ -64,6 +64,25 @@
         }
     }
 
+    &__email__message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 16px;
+
+        &__icon {
+            color: $color-success;
+            font-size: 70px;
+
+            &--error {
+                color: $color-error;
+            }
+        }
+    }
+
 }
 
 /* QUERIES */
