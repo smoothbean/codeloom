@@ -1,8 +1,10 @@
 @import "../../styles/_variables";
 
 .codeloom__content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas: "header" "content";
+    grid-template-rows: var(--content_header_height) 1fr;
+
     width: 100%;
     transform: scale(1);
     transition: all 0.2s linear;
@@ -13,7 +15,7 @@
     }
 
     &__header {
-        height: var(--content_header_height);
+        grid-area: header;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -39,6 +41,7 @@
     }
 
     &__content {
+        grid-area: content;
         display: flex;
         justify-content: center;
         text-align: left;
