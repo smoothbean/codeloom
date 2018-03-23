@@ -56,6 +56,19 @@ app.post('/email/', function (req, res) {
     });
 });
 
+app.get('/downloadCv/', function (req, res) {
+    const AWS = require("aws-sdk");
+    const s3 = new AWS.S3({
+        s3ForcePathStyle: true,
+        accessKeyId: env.AWS_KEY,
+        secretAccessKey: env.AWS_SECRET,
+        region: "eu-west-1"
+    });
+    let params = { Key: `cv.pdf`, Bucket: `codeloom` };
+    let url = s3.getSignedUrl('getObject', params);
+    res.json({ url });
+});
+
 app.get('/*', function (req, res) {
      res.sendFile(path.join(__dirname + '/public/index.html'));
 });
