@@ -29,7 +29,7 @@ module.exports = function () {
 
     // We need to tell Webpack to serve our bundled application
     // from the build path. When proxying:
-    // http://localhost:3000/build -> http://localhost:8080/build
+    // http://localhost:3000/build -> http://localhost:8085/build
     publicPath: '/dist/',
 
     // Configure hot replacement
@@ -45,7 +45,7 @@ module.exports = function () {
 
   // We fire up the development server and give notice in the terminal
   // that we are starting the initial bundle
-  bundler.listen(8080, 'localhost', function () {
+  bundler.listen(8085, 'localhost', function () {
     console.log('Bundling project, please wait...');
   });
 

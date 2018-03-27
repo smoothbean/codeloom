@@ -6,7 +6,9 @@ var proxy = httpProxy.createProxyServer({
   changeOrigin: true
 });
 
-var app = express();
+const cors = require('cors');
+const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 var isProduction = process.env.NODE_ENV === 'production';
@@ -24,7 +26,7 @@ if (!isProduction) {
   bundle();
   app.all('/dist/*', function (req, res) {
     proxy.web(req, res, {
-        target: 'http://localhost:8080'
+        target: 'http://localhost:8085'
     });
   });
 
