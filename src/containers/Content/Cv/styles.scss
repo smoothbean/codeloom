@@ -10,21 +10,26 @@
         justify-content: center;
 
         &__inner {
-            height: 200px;
-            width: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            background: $color-primary-light;
-            border: 3px solid $color-primary-dark;
             border-radius: 15px;
-            color: $color-white;
+            color: $color-black;
 
             &__text {
                 margin-top: 20px;
             }
         }
     }
+}
 
+@media only screen and (min-width : 480px) {
+    .codeloom__content__cv {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

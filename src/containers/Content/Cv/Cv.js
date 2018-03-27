@@ -14,20 +14,19 @@ export default class Cv extends Component {
     }
 
     render() {
-        console.log(this.state.download);
-        // if (this.state.loading) {
-        //     return (
-        //         <div className="codeloom__content__cv__loading">
-        //             <div className="codeloom__content__cv__loading__inner">
-        //                 <Loader type="line-scale" />
-        //                 <div className="codeloom__content__cv__loading__inner__text">loading content...</div>
-        //             </div>
-        //         </div>
-        //     );
-        // }
+        if (this.state.loading) {
+            return (
+                <div className="codeloom__content__cv__loading">
+                    <div className="codeloom__content__cv__loading__inner">
+                        <Loader type="line-scale" />
+                        <div className="codeloom__content__cv__loading__inner__text">loading content...</div>
+                    </div>
+                </div>
+            );
+        }
         return (
             <div className="codeloom__content__cv">
-                <div onClick={ this.downloadCv.bind(this) }>downloadCv</div>
+                <a href={this.state.download} target="_blank">Download My CV</a>
             </div>
         );
     }
